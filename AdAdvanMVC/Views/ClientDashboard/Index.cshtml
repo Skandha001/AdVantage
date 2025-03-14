@@ -1,0 +1,141 @@
+﻿
+@* @model IEnumerable<AdAdvanMVC.Models.Ad> *@
+
+@* @{ *@
+@*     ViewData["Title"] = "ViewAdTypes"; *@
+@*     Layout = "~/Views/Shared/_LayoutUser.cshtml"; *@
+@* } *@
+
+@* <h1>View AdTypes</h1> *@
+
+@* <table class="table"> *@
+@*     <thead> *@
+@*         <tr> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.AdID) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.AdType) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Description) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.PricePerDayOrOneIssue) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.PriceUnit) *@
+@*             </th> *@
+@*             <th></th> *@
+@*         </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*         @foreach (var item in Model) *@
+@*         { *@
+@*             <tr> *@
+@*                 <td> *@
+@*                     @Html.DisplayFor(modelItem => item.AdID) *@
+@*                 </td> *@
+@*                 <td> *@
+@*                     @Html.DisplayFor(modelItem => item.AdType) *@
+@*                 </td> *@
+@*                 <td> *@
+@*                     @Html.DisplayFor(modelItem => item.Description) *@
+@*                 </td> *@
+@*                 <td> *@
+@*                     @Html.DisplayFor(modelItem => item.PricePerDayOrOneIssue) *@
+@*                 </td> *@
+@*                 <td> *@
+@*                     @Html.DisplayFor(modelItem => item.PriceUnit) *@
+@*                 </td> *@
+@*                 <td> *@
+@*                     @Html.ActionLink("Book this Adv", "Book", new { id = item.AdID }) | *@
+@*                 </td> *@
+@*             </tr> *@
+@*         } *@
+@*     </tbody> *@
+@* </table> *@
+@model IEnumerable<AdAdvanMVC.Models.Ad>
+
+@{
+    ViewData["Title"] = "ViewAdTypes";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<style>
+    .ad-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        background-color: #f9f9f9;
+        display: flex;
+        flex-direction: column;
+        height: 350px; /* Adjusted height */
+    }
+
+    .ad-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .ad-card h2 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .ad-card p {
+        color: #666;
+        margin-bottom: 8px;
+    }
+
+    .book-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        margin-top: auto;
+    }
+
+    .book-button:hover {
+        background-color: #3e8e41;
+        transform: scale(1.05);
+    }
+
+    .book-button-1 { background-color: #3498db; }
+    .book-button-2 { background-color: #e74c3c; }
+    .book-button-3 { background-color: #f39c12; }
+    .book-button-4 { background-color: #9b59b6; }
+    .book-button-5 { background-color: #2ecc71; }
+    .book-button-6 { background-color: #1abc9c; }
+    .book-button-7 { background-color: #d35400; }
+    .book-button-8 { background-color: #34495e; }
+    .book-button-9 { background-color: #c0392b; }
+    .book-button-10 { background-color: #2980b9; }
+
+</style>
+
+<h1>View Ad Types</h1>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+            <div class="col-md-4">
+                <div class="ad-card">
+                    <h2>@Html.DisplayFor(modelItem => item.AdType)</h2>
+                    <p><strong>Description:</strong> @Html.DisplayFor(modelItem => item.Description)</p>
+                    <p><strong>Price:</strong> @Html.DisplayFor(modelItem => item.PricePerDayOrOneIssue) @Html.DisplayFor(modelItem => item.PriceUnit)</p>
+                    <p><strong>Ad ID:</strong> @Html.DisplayFor(modelItem => item.AdID)</p>
+                    <a href="@Url.Action("Book", new { id = item.AdID })" class="book-button book-button-@(item.AdID % 10 + 1)">Book this Adv</a>
+                </div>
+            </div>
+    }
+</div>

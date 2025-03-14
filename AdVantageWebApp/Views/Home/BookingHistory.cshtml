@@ -1,0 +1,41 @@
+﻿@model List<AdVantageWebApp.Models.BookingModel>
+
+@{
+    ViewData["Title"] = "Booking History";
+}
+
+<h2>Booking History</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Booking Date</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Ad ID</th>
+                <th>Approved</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.BookingDate</td>
+                    <td>@booking.StartDate</td>
+                    <td>@booking.EndDate</td>
+                    <td>@booking.AdId</td>
+                    <td>@booking.IsApproved</td>
+                    <td>
+                        <a asp-action="Feedback" asp-route-adId="@booking.AdId" class="btn btn-sm btn-primary">Submit Feedback</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No bookings found.</p>
+}

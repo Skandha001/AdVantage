@@ -1,0 +1,233 @@
+﻿@* <!DOCTYPE html> *@
+@* <html lang="en"> *@
+@* <head> *@
+@*     <meta charset="utf-8" /> *@
+@*     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> *@
+@*     <title>@ViewData["Title"] AdAdvanMVC</title> *@
+
+@*     <!-- Google Fonts --> *@
+@*     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> *@
+
+@*     <!-- Bootstrap CSS --> *@
+@*     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+
+@*     <!-- Custom CSS --> *@
+@*     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
+@*     <link rel="stylesheet" href="~/AdAdvanMVC.styles.css" asp-append-version="true" /> *@
+
+@*     <style> *@
+@*         /* General Styling */ *@
+@*         body { *@
+@*             font-family: 'Poppins', sans-serif; *@
+@*             color: lightgray; *@
+@*             background-image: url('/images/x1.jpg'); *@
+@*             background-size: cover; *@
+@*             background-repeat: no-repeat; *@
+@*             background-attachment: fixed; *@
+@*         } *@
+
+@*         /* Navbar Styling */ *@
+@*         .navbar { *@
+@*             background-color: rgba(108, 117, 125, 0.8); /* Semi-transparent background */ *@
+@*             backdrop-filter: blur(5px); /* Blur effect */ *@
+@*             transition: all 0.3s ease-in-out; *@
+@*         } *@
+
+@*             .navbar a.nav-link { *@
+@*                 color: #f8f9fa; *@
+@*                 transition: all 0.3s ease-in-out; *@
+@*             } *@
+
+@*                 .navbar a.nav-link:hover { *@
+@*                     background-color: #495057; *@
+@*                     color: #ffffff; *@
+@*                     text-decoration: underline; *@
+@*                 } *@
+
+@*         /* Footer Styling */ *@
+@*         footer { *@
+@*             background-color: #343a40; *@
+@*             color: #f8f9fa; *@
+@*             padding: 1rem; *@
+@*             text-align: center; *@
+@*         } *@
+
+@*         /* Buttons/Links Styling */ *@
+@*         .navbar-toggler { *@
+@*             border-color: #f8f9fa; *@
+@*         } *@
+
+@*             .navbar-toggler:hover { *@
+@*                 background-color: #f8f9fa; *@
+@*             } *@
+@*     </style> *@
+@* </head> *@
+@* <body> *@
+@*     <header> *@
+@*         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"> *@
+@*             <div class="container-fluid"> *@
+@*                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Welcome to Ad Advantage</a> *@
+@*                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" *@
+@*                         aria-expanded="false" aria-label="Toggle navigation"> *@
+@*                     <span class="navbar-toggler-icon"></span> *@
+@*                 </button> *@
+@*                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between"> *@
+@*                     <ul class="navbar-nav flex-grow-1"> *@
+@*                         <li class="nav-item"> *@
+@*                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a> *@
+@*                         </li> *@
+@*                         <li class="nav-item"> *@
+@*                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AdminLogin">Admin Login</a> *@
+@*                         </li> *@
+@*                         <li class="nav-item"> *@
+@*                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="ClientLogin">Client Registration / Login</a> *@
+@*                         </li> *@
+@*                     </ul> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </nav> *@
+@*     </header> *@
+@*     <div class="container"> *@
+@*         <main role="main" class="pb-3"> *@
+@*             @RenderBody() *@
+@*         </main> *@
+@*     </div> *@
+
+@*     <footer class="border-top footer text-muted"> *@
+@*         <div class="container"> *@
+@*             &copy; 2025 - AdAdvanMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+@*         </div> *@
+@*     </footer> *@
+
+@*     <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
+@*     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+@*     <script src="~/js/site.js" asp-append-version="true"></script> *@
+@*     @await RenderSectionAsync("Scripts", required: false) *@
+@* </body> *@
+@* </html> *@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] AdAdvanMVC</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AdAdvanMVC.styles.css" asp-append-version="true" />
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: lightgray;
+            background-image: url('/images/x1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: rgba(52, 152, 219, 0.9); /* Brighter blue color, more opaque */
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease-in-out;
+        }
+
+            .navbar a.navbar-brand {
+                color: rgba(255, 255, 255, 0.7); /* Duller color for the brand */
+                transition: all 0.3s ease-in-out;
+            }
+
+            .navbar a.nav-link {
+                color: #f8f9fa;
+                transition: all 0.3s ease-in-out;
+            }
+
+                .navbar a.nav-link:hover {
+                    background-color: #34495e; /* Darker hover */
+                    color: #ffffff;
+                    text-decoration: underline;
+                }
+
+        /* Footer Styling */
+        footer {
+            background-color: #343a40;
+            color: #f8f9fa;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Buttons/Links Styling */
+        .navbar-toggler {
+            border-color: #f8f9fa;
+        }
+
+            .navbar-toggler:hover {
+                background-color: #f8f9fa;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    Welcome to Ad Advantage
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AdminLogin">
+                                Admin
+                                Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="ClientLogin">
+                                Client
+                                Registration / Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - AdAdvanMVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

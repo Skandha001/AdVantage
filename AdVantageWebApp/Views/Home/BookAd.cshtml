@@ -1,0 +1,27 @@
+﻿@model AdVantageWebApp.Models.AdModel
+@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "Book Ad";
+    var userId = Context.Session.GetInt32("UserId");
+}
+
+<h2>Book Ad: @Model.Title</h2>
+
+<form asp-action="BookAd" method="post">
+    <input type="hidden" asp-for="Id" name="AdId" />
+
+    <div class="form-group">
+        <label for="StartDate">Start Date:</label>
+        <input type="datetime-local" name="StartDate" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="EndDate">End Date:</label>
+        <input type="datetime-local" name="EndDate" class="form-control" required />
+    </div>
+
+    <input type="hidden" name="UserId" value="@Context.Session.GetInt32("UserId")" />
+
+    <button type="submit" class="btn btn-primary">Confirm Booking</button>
+</form>

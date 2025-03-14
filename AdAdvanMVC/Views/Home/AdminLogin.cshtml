@@ -1,0 +1,39 @@
+﻿@model AdAdvanMVC.Models.User
+
+@{
+    ViewData["Title"] = "Ad Advantage Admin Login";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h1 style="text-align:left">Ad Advantage Admin Login</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AdminLogin">
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" value="adminuser@adadvantage.com" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password</label>
+                <input asp-for="Password" value="adminpass123" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Admin Login" class="btn btn-primary" />
+            </div>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <lable>
+                @Html.Raw(ViewBag.Message)
+            </lable>
+        </form>
+    </div>
+</div>

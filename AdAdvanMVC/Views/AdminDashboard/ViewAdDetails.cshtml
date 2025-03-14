@@ -1,0 +1,28 @@
+﻿@model AdAdvanMVC.Models.Ad
+
+@{
+    ViewData["Title"] = "Ad Details";
+}
+
+<div class="container">
+    <h1>Ad Details</h1>
+
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">Ad Type</dt>
+            <dd class="col-sm-10">@Model.AdType</dd>
+
+            <dt class="col-sm-2">Description</dt>
+            <dd class="col-sm-10">@Model.Description</dd>
+
+            <dt class="col-sm-2">Price Per Day/Issue</dt>
+            <dd class="col-sm-10">@Model.PricePerDayOrOneIssue</dd>
+
+            <dt class="col-sm-2">Price Unit</dt>
+            <dd class="col-sm-10">@Model.PriceUnit</dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="ManageAds">Back to List</a>
+    </div>
+</div>

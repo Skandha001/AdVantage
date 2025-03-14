@@ -1,0 +1,204 @@
+﻿@* @model AdAdvanMVC.Models.Ad *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Add Ad"; *@
+@* } *@
+
+@* <div class="container"> *@
+@*     <h1>Add Ad</h1> *@
+
+@*     <div class="row"> *@
+@*         <div class="col-md-4"> *@
+@*             <form asp-action="AddAd"> *@
+@*                 <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+@*                 <div class="form-group"> *@
+@*                     <label asp-for="AdType" class="control-label"></label> *@
+@*                     <input asp-for="AdType" class="form-control" /> *@
+@*                     <span asp-validation-for="AdType" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group"> *@
+@*                     <label asp-for="Description" class="control-label"></label> *@
+@*                     <input asp-for="Description" class="form-control" /> *@
+@*                     <span asp-validation-for="Description" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group"> *@
+@*                     <label asp-for="PricePerDayOrOneIssue" class="control-label"></label> *@
+@*                     <input asp-for="PricePerDayOrOneIssue" class="form-control" /> *@
+@*                     <span asp-validation-for="PricePerDayOrOneIssue" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group"> *@
+@*                     <label asp-for="PriceUnit" class="control-label"></label> *@
+@*                     <input asp-for="PriceUnit" class="form-control" /> *@
+@*                     <span asp-validation-for="PriceUnit" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group"> *@
+@*                     <input type="submit" value="Create" class="btn btn-primary" /> *@
+@*                 </div> *@
+@*             </form> *@
+@*         </div> *@
+@*     </div> *@
+
+@*     <div> *@
+@*         <a asp-action="ManageAds">Back to List</a> *@
+@*     </div> *@
+@* </div> *@
+
+@model AdAdvanMVC.Models.Ad
+
+@{
+    ViewData["Title"] = "Add Ad";
+}
+
+<style>
+    .container {
+        background: linear-gradient(135deg, #f0f4ff, #e1e9ff);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        margin: 40px auto;
+        max-width: 600px;
+    }
+
+    h1 {
+        color: #455a64;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        font-size: 2.5em;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .col-md-4 {
+        width: 100%;
+    }
+
+    form {
+        background-color: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .control-label {
+        display: block;
+        font-weight: 500;
+        color: #616161;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        font-size: 1em;
+        color: #495057;
+        transition: border-color 0.2s ease-in-out;
+    }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+    .text-danger {
+        color: #e57373;
+        font-size: 0.9em;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .btn-primary {
+        background-color: #26a69a;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-size: 1.1em;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #009688;
+        }
+
+    div > a {
+        display: block;
+        text-align: center;
+        margin-top: 25px;
+        color: #455a64;
+        text-decoration: none;
+        font-size: 1em;
+        transition: color 0.3s ease;
+    }
+
+        div > a:hover {
+            color: #26a69a;
+        }
+</style>
+
+<div class="container">
+    <h1>Add Ad</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="AddAd">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="AdType" class="control-label"></label>
+                    <select asp-for="AdType" class="form-control">
+                        <option value="">-- Select Ad Type --</option>
+                        <option value="Digital Ad">Digital Ad</option>
+                        <option value="Public Hoarding">Public Hoarding</option>
+                        <option value="Handheld Pamphlets">Handheld Pamphlets</option>
+                        <option value="Magzine Images">Magzine Images</option>
+                    </select>
+                    <span asp-validation-for="AdType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PricePerDayOrOneIssue" class="control-label"></label>
+                    <input asp-for="PricePerDayOrOneIssue" class="form-control" />
+                    <span asp-validation-for="PricePerDayOrOneIssue" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PriceUnit" class="control-label"></label>
+                    <select asp-for="PriceUnit" class="form-control">
+                        <option value="">-- Select Unit --</option>
+                        <option value="Per CM">Per CM</option>
+                        <option value="Per Issue">Per Issue</option>
+                        <option value="Per Square Feet">Per Square Feet</option>
+                        <option value="Per Imagage ">Per Image</option>
+                    </select>
+                    <span asp-validation-for="PriceUnit" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="ManageAds">Back to List</a>
+    </div>
+</div>

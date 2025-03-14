@@ -1,0 +1,174 @@
+﻿@* @model List<AdAdvanMVC.Models.Ad> *@
+
+@* @{ *@
+@*     ViewData["Title"] = "My Ads"; *@
+@* } *@
+
+@* <div class="container"> *@
+@*     <h1>My Booked Ads</h1> *@
+
+@*     @if (Model != null && Model.Any()) *@
+@*     { *@
+@*         <table class="table table-bordered"> *@
+@*             <thead> *@
+@*                 <tr> *@
+@*                     <th>Ad Title</th> *@
+@*                     <th>Description</th> *@
+@*                     <th>Status</th> *@
+@*                 </tr> *@
+@*             </thead> *@
+@*             <tbody> *@
+@*                 @foreach (var ad in Model) *@
+@*                 { *@
+@*                     <tr> *@
+@*                         <td>@ad.AdID</td> *@
+@*                         <td>@ad.Description</td> *@
+@*                         <td>@ad.AdType</td> *@
+@*                     </tr> *@
+@*                 } *@
+@*             </tbody> *@
+@*         </table> *@
+@*     } *@
+@*     else *@
+@*     { *@
+@*         <p>You have not booked any ads yet.</p> *@
+@*     } *@
+@* </div> *@
+@model List<AdAdvanMVC.Models.Ad>
+
+@{
+    ViewData["Title"] = "My Ads";
+}
+
+<style>
+    .container {
+        background: linear-gradient(135deg, #e0f7fa, #c2e9fb);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        margin: 40px auto;
+        max-width: 900px;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin: 20px auto;
+        width: 90%;
+    }
+
+        .table thead th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tbody td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 12px;
+            color: #555;
+        }
+
+    .no-ads {
+        text-align: center;
+        padding: 40px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        margin-top: 30px;
+        color: #777;
+        font-size: 1.1em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .table td, .table th {
+        border: none;
+    }
+
+    .table-bordered {
+        border: none;
+    }
+
+        .table-bordered thead th,
+        .table-bordered tbody td {
+            border: none;
+        }
+
+    .table tbody tr:hover {
+        background-color: #f0f8ff;
+        transition: background-color 0.3s ease;
+    }
+
+    .go-back-button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+        .go-back-button:hover {
+            background-color: #0056b3;
+        }
+</style>
+
+<div class="container">
+    <h1>My Booked Ads</h1>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Ad ID</th>
+                    <th>Description</th>
+                    <th>Ad Type</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ad in Model)
+                {
+                    <tr>
+                        <td>@ad.AdID</td>
+                        <td>@ad.Description</td>
+                        <td>@ad.AdType</td>
+                        <td>@ad.PricePerDayOrOneIssue</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="no-ads">
+            <p>You have not booked any ads yet or all your booked ads are paid.</p>
+        </div>
+    }
+
+    <a href="@Url.Action("Index", "ClientDashboard")" class="go-back-button">Go Back</a>
+</div>

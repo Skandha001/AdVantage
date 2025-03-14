@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AdAdvanMVC.Models.Ad>
+
+@{
+    ViewData["Title"] = "ViewAdTypes";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h1>View AdTypes</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AdID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PricePerDayOrOneIssue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceUnit)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PricePerDayOrOneIssue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceUnit)
+            </td>
+            <td>
+                @Html.ActionLink("Book this Adv", "Book", new { id=item.AdID }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

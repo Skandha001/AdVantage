@@ -1,0 +1,220 @@
+﻿@* @model List<AdAdvanMVC.Models.Ad> *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Manage Ads"; *@
+@* } *@
+
+@* <div class="container"> *@
+@*     <h1>Manage Ads</h1> *@
+
+@*     <p> *@
+@*         <a asp-action="AddAd" class="btn btn-success">Add New Ad</a> *@
+@*     </p> *@
+
+@*     <table class="table table-bordered"> *@
+@*         <thead> *@
+@*             <tr> *@
+@*                 <th>Ad Type</th> *@
+@*                 <th>Description</th> *@
+@*                 <th>Price Per Day/Issue</th> *@
+@*                 <th>Price Unit</th> *@
+@*                 <th>Actions</th> *@
+@*             </tr> *@
+@*         </thead> *@
+@*         <tbody> *@
+@*             @foreach (var ad in Model) *@
+@*             { *@
+@*                 <tr> *@
+@*                     <td>@ad.AdType</td> *@
+@*                     <td>@ad.Description</td> *@
+@*                     <td>@ad.PricePerDayOrOneIssue</td> *@
+@*                     <td>@ad.PriceUnit</td> *@
+@*                     <td> *@
+@*                         <a asp-action="ViewAdDetails" asp-route-id="@ad.AdID" class="btn btn-primary btn-sm">View</a> *@
+@*                         <a asp-action="DeleteAd" asp-route-id="@ad.AdID" class="btn btn-danger btn-sm">Delete</a> *@
+@*                     </td> *@
+@*                 </tr> *@
+@*             } *@
+@*         </tbody> *@
+@*     </table> *@
+@*     <p> *@
+@*         <a asp-action="Index" class="btn btn-secondary">Back to Dashboard</a> *@
+@*     </p> *@
+@* </div> *@
+
+@model List<AdAdvanMVC.Models.Ad>
+
+@{
+    ViewData["Title"] = "Manage Ads";
+}
+
+<style>
+    .container {
+        background: linear-gradient(135deg, #f0f4ff, #e1e9ff); /* Light, airy background */
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        margin: 40px auto;
+        max-width: 1000px;
+    }
+
+    h1 {
+        color: #455a64; /* Darker blue-gray */
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        font-size: 2.5em;
+    }
+
+    .add-new-ad {
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+        .add-new-ad .btn-success {
+            background-color: #4caf50; /* Green */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+            .add-new-ad .btn-success:hover {
+                background-color: #43a047;
+            }
+
+    .table {
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+        .table thead th {
+            background-color: #26a69a; /* Teal */
+            color: white;
+            text-align: center;
+            padding: 16px 24px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 0.9em;
+        }
+
+        .table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+            .table tbody tr:last-child {
+                border-bottom: none;
+            }
+
+            .table tbody tr:nth-child(even) {
+                background-color: #f5f5f5;
+            }
+
+        .table tbody td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 14px 24px;
+            color: #616161;
+            font-size: 0.95em;
+        }
+
+            .table tbody td:first-child {
+                font-weight: 500;
+            }
+
+            .table tbody td:last-child {
+                white-space: nowrap;
+            }
+
+    .btn-primary {
+        background-color: #64b5f6; /* Light Blue */
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #42a5f5;
+        }
+
+    .btn-danger {
+        background-color: #e57373; /* Light Red */
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 0.85em;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-danger:hover {
+            background-color: #ef5350;
+        }
+
+    .back-to-dashboard {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+        .back-to-dashboard .btn-secondary {
+            background-color: #90a4ae; /* Blue-gray */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+            .back-to-dashboard .btn-secondary:hover {
+                background-color: #78909c;
+            }
+</style>
+
+<div class="container">
+    <h1>Manage Ads</h1>
+
+    <div class="add-new-ad">
+        <a asp-action="AddAd" class="btn btn-success">Add New Ad</a>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ad Type</th>
+                <th>Description</th>
+                <th>Price Per Day/Issue</th>
+                <th>Price Unit</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ad in Model)
+            {
+                <tr>
+                    <td>@ad.AdType</td>
+                    <td>@ad.Description</td>
+                    <td>@ad.PricePerDayOrOneIssue</td>
+                    <td>@ad.PriceUnit</td>
+                    <td>
+                        <a asp-action="ViewAdDetails" asp-route-id="@ad.AdID" class="btn btn-primary btn-sm">View</a>
+                        <a asp-action="DeleteAd" asp-route-id="@ad.AdID" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="back-to-dashboard">
+        <a asp-action="Index" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>

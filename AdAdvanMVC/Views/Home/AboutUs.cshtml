@@ -1,0 +1,124 @@
+﻿@* @{ *@
+@*     ViewData["Title"] = "About Us"; *@
+@* } *@
+
+@* <div class="text-center"> *@
+@*     <h1 class="display-4">About Ad Advantage</h1> *@
+@*     <p> *@
+@*         Ad Advantage is a platform designed to connect businesses with advertising opportunities. We provide a comprehensive *@
+@*         solution for managing and booking advertisements across various mediums, including digital, public hoardings, and *@
+@*         handheld pamphlets. *@
+@*     </p> *@
+
+@*     <p> *@
+@*         Our mission is to simplify the advertising process, making it more efficient and accessible for businesses of all *@
+@*         sizes. We strive to provide a user-friendly platform that empowers our clients to reach their target audience *@
+@*         effectively. *@
+@*     </p> *@
+
+@*     <p> *@
+@*         Key features of Ad Advantage include: *@
+@*     </p> *@
+@*     <ul> *@
+@*         <li>Easy ad booking</li> *@
+@*         <li>Multiple ad formats</li> *@
+@*         <li>Transparent pricing</li> *@
+@*         <li>User-friendly interface</li> *@
+@*     </ul> *@
+
+@*     <p> *@
+@*         We are committed to providing excellent service and support to our clients. If you have any questions or feedback, *@
+@*         please don't hesitate to contact us. *@
+@*     </p> *@
+@* </div> *@
+
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<style>
+    .about-container {
+        max-width: 800px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+        .about-container h1 {
+            color: #3498db; /* A vibrant blue */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-container p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .about-container ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+            .about-container ul li {
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: 10px;
+                color: #777;
+            }
+
+                .about-container ul li:before {
+                    content: "\f00c"; /* Font Awesome checkmark icon */
+                    font-family: "Font Awesome 5 Free"; /* Or your specific Font Awesome version */
+                    font-weight: 900;
+                    position: absolute;
+                    left: 0;
+                    color: #2ecc71; /* A bright green */
+                }
+
+    .highlight {
+        background-color: #f0f8ff; /* Very light blue */
+        padding: 2px 5px;
+        border-radius: 4px;
+        font-weight: 600;
+    }
+</style>
+
+<div class="about-container">
+    <h1 class="display-4">About Ad Advantage</h1>
+    <p>
+        <span class="highlight">Ad Advantage</span> is a platform designed to connect businesses with advertising
+        opportunities. We provide a comprehensive solution for managing and booking advertisements across various
+        mediums, including <span class="highlight">digital</span>, <span class="highlight">public hoardings</span>, and
+        <span class="highlight">handheld pamphlets</span>.
+    </p>
+
+    <p>
+        Our mission is to simplify the advertising process, making it more efficient and accessible for businesses of all
+        sizes. We strive to provide a user-friendly platform that empowers our clients to reach their target audience
+        effectively.
+    </p>
+
+    <p>
+        Key features of Ad Advantage include:
+    </p>
+    <ul>
+        <li>Easy ad booking</li>
+        <li>Multiple ad formats</li>
+        <li>Transparent pricing</li>
+        <li>User-friendly interface</li>
+    </ul>
+
+    <p>
+        We are committed to providing excellent service and support to our clients. If you have any questions or feedback,
+        please don't hesitate to contact us.
+    </p>
+</div>

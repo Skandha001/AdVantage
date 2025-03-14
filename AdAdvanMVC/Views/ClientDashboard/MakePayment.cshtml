@@ -1,0 +1,61 @@
+﻿@model List<AdAdvanMVC.Models.Ad>
+@using AdAdvanMVC.Models;
+
+@{
+    ViewData["Title"] = "Make Payment";
+    List<Booking> approvedBookings = ViewBag.ApprovedBookings; // Retrieve approved bookings
+}
+
+<style>
+    /* ... (your existing styles) ... */
+</style>
+
+<div class="container">
+    <h1>Make Payment</h1>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Ad ID</th>
+                    <th>Description</th>
+                    <th>Ad Type</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@Model[i].AdID</td>
+                        <td>@Model[i].Description</td>
+                        <td>@Model[i].AdType</td>
+                        <td>@Model[i].PricePerDayOrOneIssue</td>
+                        <td>
+                            <form asp-action="MakePayment" asp-controller="ClientDashboard" method="post">
+                                <input type="hidden" name="BookingID" value="@approvedBookings[i].BookingID" />
+                                <select name="PaymentMethod">
+                                    <option value="Cash">Cash</option>
+                                    <option value="Credit Card">Credit Card</option>
+                                    <option value="Net Banking">Net Banking</option>
+                                    <option value="UPI">UPI</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary">Pay</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="no-ads">
+            <p>No ads are available for payment.</p>
+        </div>
+    }
+
+    <a href="@Url.Action("ViewMyAds", "ClientDashboard")" class="go-back-button">Go Back</a>
+</div>

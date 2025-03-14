@@ -1,0 +1,18 @@
+﻿@model AdVantageWebApp.Models.AdModel
+
+@{
+    ViewData["Title"] = "Submit Feedback";
+}
+
+<h2>Submit Feedback for @Model.Title</h2>
+
+<form asp-action="Feedback" method="post">
+    <input type="hidden" asp-for="Id" name="AdId" />
+
+    <div class="form-group">
+        <label for="Message">Feedback:</label>
+        <textarea name="Message" class="form-control" rows="5" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+</form>
